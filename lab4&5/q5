@@ -1,0 +1,26 @@
+# Student Name: Ankit Kumar
+# Roll Number: 2024UG1034
+# Course: CS-2101/CD-2101 - Python Programming Lab
+# Experiment 4 & 5 - Task 5: Word frequency counter
+
+def word_frequency():
+    try:
+        with open("data.txt", "r") as f:
+            text = f.read().lower()
+
+        words = text.split()
+        freq = {}
+
+        for w in words:
+            freq[w] = freq.get(w, 0) + 1
+
+        print("Word Frequency (Sorted):")
+        for word in sorted(freq):
+            print(word, ":", freq[word])
+
+    except FileNotFoundError:
+        print("data.txt not found.")
+    except Exception as e:
+        print("Error occurred:", e)
+
+word_frequency()
